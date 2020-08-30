@@ -1,51 +1,41 @@
 <template>
-  <v-row justify="center">
-    <v-col xl="6" lg="6" md="6" cols="12">
-      <v-card min-height="600" min-width="600">
-        <v-row class="pt-15">
-          <v-col cols="12">
-            <!-- eslint-disable-next-line -->
-            <h1 class="text-center">Крестики-нолики ONLINE</h1>
-          </v-col>
-        </v-row>
-        <form @submit.prevent="play">
-          <v-row justify="center">
-            <v-col cols="6">
-              <v-text-field v-model="name" required label="Имя" filled rounded />
-            </v-col>
-          </v-row>
-          <v-row justify="center">
-            <v-col cols="6">
-              <v-text-field v-model="room" required label="Комната" filled rounded />
-            </v-col>
-          </v-row>
-          <v-row justify="center">
-            <v-col cols="6">
-              <!-- eslint-disable-next-line -->
-              <v-btn color="secondary" type="submit" rounded block x-large>Играть</v-btn>
-            </v-col>
-          </v-row>
-        </form>
-      </v-card>
+  <!-- eslint-disable -->
+  <v-row>
+    <v-col xl="4" lg="4" md="4" sm="6" cols="12" v-for="(g,index) in games" :key="index">
+      <v-hover>
+        <template v-slot="{ hover }">
+          <v-card color="info" class="mx-auto transition-swing" :elevation="hover ? 16 : 3">
+            <v-card-text>
+              <div>{{g.category}}</div>
+              <p class="display-1 text--primary">{{g.name}}</p>
+              <div class="text--primary">{{g.desc}}</div>
+            </v-card-text>
+            <v-card-actions>
+              <v-btn rounded color="secondary" absolute right nuxt-link :to="g.url">Играть</v-btn>
+            </v-card-actions>
+          </v-card>
+        </template>
+      </v-hover>
     </v-col>
   </v-row>
 </template>
 
 <script>
-
 export default {
-  components: {
-  },
   data () {
     return {
-      name: '',
-      room: ''
-    }
-  },
-  methods: {
-    play () {
-      alert('we going play to game')
+      games: [
+        {
+          name: 'Крестики-нолики',
+          category: 'Игра двоих/онлайн',
+          desc: 'Крестики-нолики – логическая игра между двумя противниками на квадратном поле 3х3 клетки. Один из игроков играет «крестиками», второй — «ноликами».',
+          url: '/crosszero'
+        }
+      ]
     }
   }
 }
 </script>
+
+<style>
+</style>

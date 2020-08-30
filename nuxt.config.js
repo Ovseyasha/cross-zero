@@ -27,6 +27,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  loading: { color: '#023E86', height: '10px' },
   /*
   ** Global CSS
   */
@@ -37,6 +38,14 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    // apiKey: "AIzaSyAh3TsAlyDIvhoZPUsvAShpkjlPfAd-_Sw",
+    // authDomain: "game-library-5babf.firebaseapp.com",
+    // databaseURL: "https://game-library-5babf.firebaseio.com",
+    // projectId: "game-library-5babf",
+    // storageBucket: "game-library-5babf.appspot.com",
+    // messagingSenderId: "743977539290",
+    // appId: "1:743977539290:web:905c9f0b7bf7e21218b7e3",
+    // measurementId: "G-TT58ED8V1Q"
   ],
   /*
   ** Auto import components
@@ -63,6 +72,10 @@ export default {
   */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    font: {
+      family: 'Montserrat'
+    },
+    // icons: 'mdi',
     theme: {
       dark: false,
       default: 'light',
