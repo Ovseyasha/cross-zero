@@ -2,7 +2,7 @@
   <v-row justify="center">
     <!-- eslint-disable -->
     <v-col xl="6" lg="6" md="6" cols="12">
-      <v-card min-height="600" min-width="600">
+      <v-card min-height="500">
         <v-container>
           <v-row>
             <v-col cols="12">

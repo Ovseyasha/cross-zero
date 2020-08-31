@@ -2,32 +2,45 @@
   <v-row justify="center">
     <!-- eslint-disable -->
     <v-col xl="6" lg="6" md="6" cols="12">
-      <v-card min-height="600" min-width="600">
+      <v-card min-height="500">
         <v-container>
           <v-row>
             <v-col cols="12">
               <v-row justify="space-between">
                 <v-col cols="auto">
-                  <h1 class="secondary--text">{{user1.name}}</h1>
+                  <h1
+                    :class="{'text-decoration-underline': user1.role === order}"
+                    class="secondary--text"
+                  >{{user1.name}}</h1>
                   <p class="secondary--text">{{user1.role === 'x' ? 'Крестики' : 'Нолики'}}</p>
                 </v-col>
                 <v-col align="right" cols="auto">
-                  <h1 class="primary--text">{{user2.name}}</h1>
+                  <h1
+                    :class="{'text-decoration-underline': user2.role === order}"
+                    class="primary--text"
+                  >{{user2.name}}</h1>
                   <p class="primary--text text-left">{{user2.role === 'x' ? 'Крестики' : 'Нолики'}}</p>
                 </v-col>
               </v-row>
               <v-divider />
               <v-row>
                 <v-col cols="12">
-                  <v-row v-for="(row,i) in cells" :key="i">
+                  <v-row v-for="(row,i) in cells" :key="i" class="borderdrow">
                     <v-col
+                      class="borderd"
                       v-for="(m,j) in row"
                       :key="j"
                       align-self="center"
                       align="center"
                       cols="4"
                     >
-                      <v-btn :disabled="dialog" x-large :value="m" @click="setVal(i,j)">{{ m }}</v-btn>
+                      <v-btn
+                        :disabled="dialog"
+                        block
+                        x-large
+                        :value="m"
+                        @click="setVal(i,j)"
+                      >{{ m }}</v-btn>
                     </v-col>
                   </v-row>
                 </v-col>
@@ -154,6 +167,7 @@ export default {
     restart () {
       this.changeRole()
       this.dialog = false
+      this.order = 'x'
       this.cells = [
         ['', '', ''],
         ['', '', ''],
@@ -165,11 +179,12 @@ export default {
 </script>
 
 <style>
-.box {
-  display: flex;
+.borderd:nth-child(2n) {
+  border-left: 4px solid #023e86;
+  border-right: 4px solid #023e86;
 }
-.cells {
-  width: 200px;
-  height: 200px;
+.borderdrow:nth-child(2n) {
+  border-top: 4px solid #023e86;
+  border-bottom: 4px solid #023e86;
 }
 </style>

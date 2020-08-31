@@ -1,33 +1,39 @@
 <template>
   <v-row justify="center">
     <v-col xl="6" lg="6" md="6" cols="12">
-      <v-card min-height="600" min-width="600">
-        <v-row class="pt-15">
-          <v-col cols="12">
-            <h1 class="text-center">
+      <v-card min-height="500">
+        <v-container>
+          <v-row>
+            <v-col>
               <!-- eslint-disable-next-line -->
-              <v-btn nuxt to="/crosszero" absolute left rounded>←</v-btn>Крестики-нолики на двоих
-            </h1>
-          </v-col>
-        </v-row>
-        <form @submit.prevent="play">
-          <v-row justify="center">
-            <v-col cols="6">
-              <v-text-field v-model="name" required label="Имя 1" filled rounded />
+              <v-btn nuxt to="/crosszero" rounded>←</v-btn>
             </v-col>
           </v-row>
-          <v-row justify="center">
-            <v-col cols="6">
-              <v-text-field v-model="name2" required label="Имя 2" filled rounded />
-            </v-col>
-          </v-row>
-          <v-row justify="center">
-            <v-col cols="6">
+          <v-row class="pt-15">
+            <v-col cols="12">
               <!-- eslint-disable-next-line -->
-              <v-btn color="secondary" type="submit" rounded block x-large>Играть</v-btn>
+              <h1 class="text-center">Крестики-нолики на двоих</h1>
             </v-col>
           </v-row>
-        </form>
+          <form @submit.prevent="play">
+            <v-row justify="center">
+              <v-col xl="6" lg="6" md="6" cols="12">
+                <v-text-field v-model="name" required label="Имя 1" filled rounded />
+              </v-col>
+            </v-row>
+            <v-row justify="center">
+              <v-col xl="6" lg="6" md="6" cols="12">
+                <v-text-field v-model="name2" required label="Имя 2" filled rounded />
+              </v-col>
+            </v-row>
+            <v-row justify="center">
+              <v-col xl="6" lg="6" md="6" cols="12">
+                <!-- eslint-disable-next-line -->
+                <v-btn color="secondary" type="submit" rounded block x-large>Играть</v-btn>
+              </v-col>
+            </v-row>
+          </form>
+        </v-container>
       </v-card>
     </v-col>
   </v-row>

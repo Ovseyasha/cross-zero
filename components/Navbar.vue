@@ -5,7 +5,7 @@
       <span class="font-weight-light">Библиотека</span>
       игр
     </nuxt-link>
-    <v-text-field solo-inverted flat hide-details label="Search"></v-text-field>
+    <v-text-field solo-inverted rounded flat hide-details label="Search"></v-text-field>
     <v-spacer></v-spacer>
   </v-app-bar>
 </template>
